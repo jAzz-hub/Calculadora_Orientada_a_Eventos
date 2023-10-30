@@ -1,0 +1,47 @@
+.calculadora{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 5px;
+    border: 3px solid black;
+}
+.button{
+    font-size: 1em;
+    background-color: gray;
+    cursor: pointer;
+}
+.tela{
+    grid-column: 1 / span 4;
+    font-size: 1.5em;
+    text-align: right;
+    background-color: aliceblue;
+    padding: 10px;
+}
+.numeros{
+    grid-column: span 1;
+    background-color: blanchedalmond;
+}
+.zero{
+    grid-column: span 2;
+}
+.igual{
+    grid-row: span 2;
+    background-color: darkblue;
+}
+.AC{
+    grid-column: span 1;
+    background-color: crimson;
+}
+.delete{
+    grid-column: span 1;
+    background-color: indigo;
+}
+.operadores{
+    background-color: forestgreen;
+    grid-column: span 1;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
