@@ -39,6 +39,10 @@
     background-color: forestgreen;
     grid-column: span 1;
 }
+.memorias{
+    background-color: cornflowerblue;
+    grid-column: span 1;
+}
 body{
     height: 100vh;
     display: flex;
