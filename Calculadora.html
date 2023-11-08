@@ -1,34 +1,60 @@
+
+<!-- Tasks 
+    1. Faça uma chamada de addEventListener funcinoar
+
+    2. Replique o comportamento em um botão da calculadora
+    
+    3. Adicione todas as chamadas de event listener em um 
+    
+    4.
+
+
+-->
 <html>
     <head>
-        <script src="Calc.js"></script>
-        <link rel="stylesheet" type="text/css" href="Calculadora.css">
+        <link rel="stylesheet" type="text/css" href="css/Calculadora.css">
     </head>
     <body>
         <div class="calculadora">
             <div class="tela" id="tela">0</div>
+
+            <!-- M Operators -->
             <button class="memorias" onclick="add_in_MEMORY()">M+</button>
             <button class="memorias" onclick="minus_MEMORY()">M-</button>
             <button class="memorias" onclick="MEMORY_CLEAR()">MC</button>
             <button class="memorias" onclick="MEMORY_RETRIEVE()">MR</button>
-            <button class="AC" onclick="AC()">AC</button>
+
+            <button class="AC" id="btn_clear" >AC</button> 
             <button class="delete" onclick="DEL()">del</button>
-            <button class="operadores" onclick="porcentagem()">%</button>
-            <button class="operadores" onclick="add_in_VALOR('/')">/</button>
-            <button class="numeros" onclick="add_in_VALOR('7')">7</button>
-            <button class="numeros" onclick="add_in_VALOR('8')">8</button>
-            <button class="numeros" onclick="add_in_VALOR('9')">9</button>
-            <button class="operadores" onclick="add_in_VALOR('*')">*</button>
-            <button class="numeros" onclick="add_in_VALOR('4')">4</button>
-            <button class="numeros" onclick="add_in_VALOR('5')">5</button>
-            <button class="numeros" onclick="add_in_VALOR('6')">6</button>
-            <button class="operadores" onclick="add_in_VALOR('+')">+</button>
-            <button class="numeros" onclick="add_in_VALOR('1')">1</button>
-            <button class="numeros" onclick="add_in_VALOR('2')">2</button>
-            <button class="numeros" onclick="add_in_VALOR('3')">3</button>
-            <button class="operadores" onclick="add_in_VALOR('-')">-</button>
-            <button class="zero" onclick="add_in_VALOR('0')">0</button>
+            
+
+                     
+            <button class="operadores" id="btn_percent" onclick="porcentagem()">%</button>
+            <button class="operadores" id="btn_divide" onclick="add_in_VALOR('/')">/</button>
+
+
+            <button class="numeros" id = "btn_7" value = 7>7</button>
+            <button class="numeros" id = "btn_8" value = 8>8</button>
+            <button class="numeros" id = "btn_9" value = 9>9</button>
+
+               
+            <button class="operadores" id="btn_times" onclick="add_in_VALOR('*')">*</button>
+            <button class="numeros" id = "btn_4" value = 4>4</button>
+            <button class="numeros" id = "btn_5" value = 5>5</button>
+            <button class="numeros" id = "btn_6" value = 6>6</button>
+
+            <button class="operadores" id="btn_sum" onclick="add_in_VALOR('+')">+</button>
+            <button class="numeros" data-id="1" id = "btn_1" value = 1>1</button>
+            <button class="numeros" data-id="2" id = "btn_2" value = 2>2</button>
+            <button class="numeros" data-id="3" id = "btn_3" value = 3>3</button>
+            <button class="operadores" id="btn_subtraction" onclick="add_in_VALOR('-')">-</button>
+
+            <button class="numeros" name = "zero" id = "btn_0" value="0">0</button> 
             <button class="numeros" onclick="add_in_VALOR('.')">.</button>
-            <button class="igual" onclick="igual()">=</button>
+            <button class="igual" id = "btn_equals" onclick="igual()">=</button>
+            <button id = "teste">TESTE</button>
         </div>
     </body>
 </html>
+
+<script src="js/Calc.js"></script>
