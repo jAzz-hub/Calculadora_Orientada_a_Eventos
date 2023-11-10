@@ -121,15 +121,47 @@ function add_in_MEMORY(){
 }
 document.getElementById("btn_sumMem").addEventListener("",add_in_MEMORY)
 
-function minus_MEMORY(){
-    var numero= document.getElementById("tela").innerHTML;
-    var expression = MEMORY
-    expression += "-"
-    expression += numero
-    document.getElementById("tela").innerHTML=eval(expression).toString();
-    MEMORY=document.getElementById("tela").innerHTML;
+function sub_in_MEMORY(){
+
+    if(MemoryStack[0] == undefined)
+    {
+        if (document.getElementById("tela").innerHTML.includes('.'))
+        {
+            MemoryStack.push(parseFloat(document.getElementById("tela").innerHTML));
+        }
+        else
+        {
+        
+            MemoryStack.push(parseInt(document.getElementById("tela").innerHTML));
+    
+        }
+    }
+    else
+    {
+        if (document.getElementById("tela").innerHTML.includes('.'))
+        {
+            MemoryStack[0] = MemoryStack[0] + parseFloat(document.getElementById("tela").innerHTML);
+        }
+        else
+        {
+        
+            MemoryStack[0] = MemoryStack[0] + parseInt(document.getElementById("tela").innerHTML);
+    
+        }
+    }
+
+    if (MemoryQueue.length == 2)
+    {
+        MemoryQueue.push('+');
+        MemoryQueue.shift();
+    }
+    else
+    {
+        MemoryQueue.push('+')
+    }
+
 }
-document.getElementById("btn_sum").addEventListener("",add_in_VALOR)
+document.getElementById("btn_subMem").addEventListener("",sub_in_MEMORY)
 
 function MEMORY_CLEAR(){
     MEMORY="0";
