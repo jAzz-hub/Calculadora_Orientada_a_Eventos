@@ -1,9 +1,7 @@
 let VALOR="";
-let MEMORY = "";
 
-
-
-
+let MemoryStack = Array();
+let MemoryQueue = Array();
 
 // Ideia:
 
@@ -50,6 +48,16 @@ function add_in_VALOR(e){
 
 function AC(){
     document.getElementById("tela").innerHTML="0"
+    
+    if (MemoryQueue.length == 2)
+    {
+        MemoryQueue.push("refresh");
+        MemoryQueue.shift();
+    }
+    else
+    {
+        MemoryQueue.push("refresh")
+    }
 }
 document.getElementById("btn_clear").addEventListener("click",AC)
 
@@ -72,10 +80,46 @@ function igual(){
 document.getElementById("btn_sum").addEventListener("",add_in_VALOR)
 
 function add_in_MEMORY(){
-    MEMORY=document.getElementById("tela").innerHTML;
-    document.getElementById("tela").innerHTML="0"
+
+    if(MemoryStack[0] == undefined)
+    {
+        if (document.getElementById("tela").innerHTML.includes('.'))
+        {
+            MemoryStack.push(parseFloat(document.getElementById("tela").innerHTML));
+        }
+        else
+        {
+        
+            MemoryStack.push(parseInt(document.getElementById("tela").innerHTML));
+    
+        }
+    }
+    else
+    {
+        if (document.getElementById("tela").innerHTML.includes('.'))
+        {
+            MemoryStack[0] = MemoryStack[0] + parseFloat(document.getElementById("tela").innerHTML);
+        }
+        else
+        {
+        
+            MemoryStack[0] = MemoryStack[0] + parseInt(document.getElementById("tela").innerHTML);
+    
+        }
+    }
+
+    if (MemoryQueue.length == 2)
+    {
+        MemoryQueue.push('+');
+        MemoryQueue.shift();
+    }
+    else
+    {
+        MemoryQueue.push('+')
+    }
+
 }
-document.getElementById("btn_sum").addEventListener("",add_in_VALOR)
+document.getElementById("btn_sumMem").addEventListener("",add_in_MEMORY)
 
 function minus_MEMORY(){
     var numero= document.getElementById("tela").innerHTML;
@@ -92,10 +136,31 @@ function MEMORY_CLEAR(){
 }
 document.getElementById("btn_sum").addEventListener("",add_in_VALOR)
 
-function MEMORY_RETRIEVE(){
-    document.getElementById("tela").innerHTML=MEMORY
+function read_in_MEMORY()
+{
+    if (MemoryStack[0] != undefined)
+    {
+        document.getElementById("tela").innerHTML = MemoryStack[0];    
+    }
+    else
+        document.getElementById("tela").innerHTML = 0
+
+    if (MemoryQueue.length == 2)
+    {
+        MemoryQueue.push("read");
+        MemoryQueue.shift();
+    }
+    else
+    {
+        MemoryQueue.push("read")
+    }
+
+    if (MemoryQueue[0] == 'read' && MemoryQueue[1] == 'read')
+    {
+        MemoryStack.pop();
+    }
 }
-document.getElementById("btn_sum").addEventListener("",add_in_VALOR)
+document.getElementById("btn_readMem").addEventListener("",read_in_MEMORY)
 
 
 
@@ -112,7 +177,7 @@ const times = (a, b) => a * b;
 const divide = (a, b) => a / b;
 
 function alerta () 
-{ window.alert('AQUI!!');}
+{ window.alert("AQUI!!");}
 
 
 document.getElementById("teste").addEventListener('click', console.log('Oi!'))

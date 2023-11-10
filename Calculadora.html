@@ -17,12 +17,12 @@
     <body>
         <div class="calculadora">
             <div class="tela" id="tela">0</div>
-
+            
             <!-- M Operators -->
-            <button class="memorias" onclick="add_in_MEMORY()">M+</button>
+            <button class="memorias" id = "btn_sumMem" onclick="add_in_MEMORY()">M+</button>
             <button class="memorias" onclick="minus_MEMORY()">M-</button>
             <button class="memorias" onclick="MEMORY_CLEAR()">MC</button>
-            <button class="memorias" onclick="MEMORY_RETRIEVE()">MR</button>
+            <button class="memorias" id = "btn_readMem" onclick="read_in_MEMORY()">MR</button>
 
             <button class="AC" id="btn_clear" >AC</button> 
             <button class="delete" id = "btn_delete" onclick="DEL()">del</button>
@@ -50,7 +50,7 @@
             <button class="operadores" id="btn_subtraction" onclick="add_in_VALOR('-')">-</button>
 
             <button class="numeros" name = "zero" id = "btn_0" value="0">0</button> 
-            <button class="numeros" onclick="add_in_VALOR('.')">.</button>
+            <button class="numeros" id = "btn_dot" value="." >.</button>
             <button class="igual" id = "btn_equals" onclick="igual()">=</button>
             <button id = "teste">TESTE</button>
         </div>
