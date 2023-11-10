@@ -136,28 +136,33 @@ function sub_in_MEMORY(){
     
         }
     }
-    else
-    {
+    else if(MemoryStack[0]>=parseFloat(document.getElementById("tela").innerHTML)){
+
         if (document.getElementById("tela").innerHTML.includes('.'))
         {
-            MemoryStack[0] = MemoryStack[0] + parseFloat(document.getElementById("tela").innerHTML);
+            MemoryStack[0] = MemoryStack[0] - parseFloat(document.getElementById("tela").innerHTML);
         }
         else
         {
         
-            MemoryStack[0] = MemoryStack[0] + parseInt(document.getElementById("tela").innerHTML);
+            MemoryStack[0] = MemoryStack[0] - parseInt(document.getElementById("tela").innerHTML);
     
         }
+    }
+    else
+    {
+        window.alert("A última subtração em memória não pode ser realizada pois o número inserido é menor que o número da memória");
+        return;
     }
 
     if (MemoryQueue.length == 2)
     {
-        MemoryQueue.push('+');
+        MemoryQueue.push('-');
         MemoryQueue.shift();
     }
     else
     {
-        MemoryQueue.push('+')
+        MemoryQueue.push('-')
     }
 
 }
