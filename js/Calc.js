@@ -168,8 +168,8 @@ function sub_in_MEMORY(){
 }
 document.getElementById("btn_subMem").addEventListener("",sub_in_MEMORY)
 
-function MEMORY_CLEAR(){
-    MEMORY="0";
+function clear_in_MEMORY(){
+    MemoryStack.pop();
 }
 document.getElementById("btn_sum").addEventListener("",add_in_VALOR)
 
