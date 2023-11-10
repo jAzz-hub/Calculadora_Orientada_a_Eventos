@@ -1,6 +1,10 @@
 let VALOR="";
 let MEMORY = "";
 
+
+
+
+
 // Ideia:
 
     //O que?
@@ -13,6 +17,7 @@ let MEMORY = "";
         // Torna o código menos verboso e mais elegante
 
 
+
 function handlerEvents(event)
 {
     const button = event.target;
@@ -20,21 +25,24 @@ function handlerEvents(event)
     add_in_VALOR(buttonId);
 }
 
-const buttons = document.querySelectorAll(".numeros");
-buttons.forEach(
+// .addEventListener afunila todos os botões da classe números.
+// Assim podemos utilizar handlerEvents para capturar qualquer eventos destes.
+const Number_buttons = document.querySelectorAll(".numeros");
+Number_buttons.forEach(
     (button) => 
     {
         button.addEventListener("click", handlerEvents);
     }
 )
-        
+
 function add_in_VALOR(e){
     
     // window.alert(e);
     // mapa = {e.target: 0};
-    var numero=document.getElementById("tela").innerHTML;
+
+    var numero = document.getElementById("tela").innerHTML;
     if(numero=="0"){
-        document.getElementById("tela").innerHTML=""
+        document.getElementById("tela").innerHTML="0"
     }
     document.getElementById("tela").innerHTML+=e;
 }
@@ -51,10 +59,12 @@ function porcentagem(){
 document.getElementById("btn_sum").addEventListener("btn_percent",porcentagem)
 
 function DEL(){
-    document.getElementById("tela").innerHTML=document.getElementByI
-    d("tela").innerHTML.substring(0,(document.getElementById("tela").innerHTML.length)-1);
+
+    document.getElementById('tela').innerHTML=document.getElementById('tela').innerHTML.substring(0,(document.getElementById('tela').innerHTML.length)-1);
+    // document.getElementById("tela").innerHTML=document.getElementByI
+    // d("tela").innerHTML.substring(0,(document.getElementById("tela").innerHTML.length)-1);
 }
-document.getElementById("btn_sum").addEventListener("",add_in_VALOR)
+document.getElementById("btn_delete").addEventListener("",DEL)
 
 function igual(){
     document.getElementById("tela").innerHTML=eval( document.getElementById("tela").innerHTML).toString();
